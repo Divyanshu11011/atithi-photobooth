@@ -3,3 +3,4 @@ firebase-admin
 deepface
 pandas
 pillow
+tf-keras
