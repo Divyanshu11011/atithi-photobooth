@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Matched Faces</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        h1 {
+            color: #007bff;
+            font-size: 2.5rem;
+        }
+        p {
+            color: #6c757d;
+            font-size: 1.25rem;
+        }
+        .btn-primary {
+            font-size: 1.25rem;
+            padding: 10px 20px;
+        }
+        .btn-primary:active {
+            animation: confetti 1s ease;
+        }
+        @keyframes confetti {
+            0% { background-position: 50% 0%; }
+            100% { background-position: 50% 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hey {{ user_name }}!</h1>
+        <p>Download your images worry-free!</p>
+        <a href="{{ url_for('download_matched_faces', user_name=user_name) }}" class="btn btn-primary mt-3">Download All as Zip</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.querySelector('.btn-primary').addEventListener('click', function() {
+            const confetti = document.createElement('div');
+            confetti.style.position = 'fixed';
+            confetti.style.top = '0';
+            confetti.style.left = '0';
+            confetti.style.width = '100%';
+            confetti.style.height = '100%';
+            confetti.style.backgroundImage = 'url("https://i.imgur.com/9Dy3A8Q.png")';
+            confetti.style.backgroundSize = 'cover';
+            confetti.style.zIndex = '9999';
+            confetti.style.pointerEvents = 'none';
+            confetti.style.animation = 'confetti 1s ease';
+            document.body.appendChild(confetti);
+            setTimeout(() => confetti.remove(), 1000);
+        });
+    </script>
+</body>
+</html>
