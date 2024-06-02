@@ -96,7 +96,7 @@ def process():
             
             # Process in smaller batches to avoid memory issues
             dfs = []
-            batch_size = 5  # Adjust the batch size based on your memory constraints
+            batch_size = 2  # Adjust the batch size based on your memory constraints
             for i in range(0, len(db_face_paths), batch_size):
                 batch_paths = db_face_paths[i:i+batch_size]
                 df = DeepFace.find(img_path=reference_image_path, db_path=temp_dir, enforce_detection=False)
